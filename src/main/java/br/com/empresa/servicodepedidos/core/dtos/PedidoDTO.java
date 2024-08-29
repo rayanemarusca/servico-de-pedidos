@@ -7,6 +7,12 @@ public class PedidoDTO {
     private Long codigoCliente;
     private List<ItemDTO> itens;
 
+    public PedidoDTO(Long codigoPedido, Long codigoCliente, List<ItemDTO> itens) {
+        this.codigoPedido = codigoPedido;
+        this.codigoCliente = codigoCliente;
+        this.itens = itens;
+    }
+
     public Long getCodigoCliente() {
         return codigoCliente;
     }

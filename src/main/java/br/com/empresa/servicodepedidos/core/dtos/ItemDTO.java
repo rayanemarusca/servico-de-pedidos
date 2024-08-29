@@ -2,6 +2,13 @@ package br.com.empresa.servicodepedidos.core.dtos;
 
 public class ItemDTO {
     private String produto;
+
+    public ItemDTO(String produto, int quantidade, double preco) {
+        this.produto = produto;
+        this.quantidade = quantidade;
+        this.preco = preco;
+    }
+
     private int quantidade;
     private double preco;
 
