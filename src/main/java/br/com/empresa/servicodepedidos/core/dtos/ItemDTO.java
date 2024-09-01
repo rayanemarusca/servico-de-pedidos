@@ -1,7 +1,11 @@
 package br.com.empresa.servicodepedidos.core.dtos;
+import com.fasterxml.jackson.annotation.JsonCreator;
 
 public class ItemDTO {
     private String produto;
+
+    public ItemDTO() {
+    }
 
     public ItemDTO(String produto, int quantidade, double preco) {
         this.produto = produto;
