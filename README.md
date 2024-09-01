@@ -115,18 +115,13 @@ curl -X GET http://localhost:8080/v1/relatorios/quantidade-pedidos
 - Exemplo de Resposta:
 ```json
 {
-  "clientes": [
-    {
-      "codigo": 1,
-      "nome": "Maria",
-      "quantidade_pedidos": 3
-    },
-    {
-      "codigo": 2,
-      "nome": "João",
-      "quantidade_pedidos": 5
-    }
-  ]
+   "clientes": [
+      {
+         "clienteId": 1,
+         "clienteNome": "Maria",
+         "quantidadePedidos": 1
+      }
+   ]
 }
 ```
 ### 3. Lista de Pedidos por Cliente
@@ -200,6 +195,25 @@ Para enviar uma mensagem para a fila RabbitMQ que será consumida pela aplicaç�
 
 ### Exemplo de Consumo de Mensagem
 A aplicação Java consumirá essa mensagem automaticamente da fila, salvará o pedido no banco de dados Postgres, e disponibilizará as consultas através dos endpoints API descritos acima.
+
+## Observações
+
+Essa aplicação não é responsável pelo cadastro de clientes e de produtos. Por isso, é necessário popular essas informações na base. 
+
+```postgresql
+INSERT INTO public.cliente(
+   id, codigo_cliente, email, nome, telefone)
+VALUES (1, 1, 'maria@gmail.com', 'Maria', '99999999');
+
+INSERT INTO public.produto(
+   id, descricao, nome, preco)
+VALUES (1, 'lápis', 'lápis', 1.1);
+
+INSERT INTO public.produto(
+   id, descricao, nome, preco)
+VALUES (2, 'caderno', 'caderno', 1);
+
+```
 
 ## Referências
 - Documentação do Spring Boot: https://spring.io/projects/spring-boot
