@@ -59,6 +59,7 @@ public class PedidoConsumer {
             pedido.setCliente(cliente);
             pedido.setTotal(0.0);
 
+            pedidoRepository.save(pedido);
             // Processar itens
             for (ItemDTO itemDTO : pedidoDTO.getItens()) {
                 Optional<Produto> optionalProduto = produtoRepository.findByNome(itemDTO.getProduto());
@@ -77,6 +78,7 @@ public class PedidoConsumer {
 
                 itemRepository.save(item);
             }
+
         } catch (Exception e) {
             e.printStackTrace();
         }

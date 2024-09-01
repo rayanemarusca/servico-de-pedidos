@@ -1,11 +1,22 @@
 package br.com.empresa.servicodepedidos.core.dtos;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+
 import java.util.List;
 
 public class PedidoDTO {
     private Long codigoPedido;
     private Long codigoCliente;
     private List<ItemDTO> itens;
+
+    public PedidoDTO() {
+    }
+
+    public PedidoDTO(Long codigoPedido, Long codigoCliente, List<ItemDTO> itens) {
+        this.codigoPedido = codigoPedido;
+        this.codigoCliente = codigoCliente;
+        this.itens = itens;
+    }
 
     public Long getCodigoCliente() {
         return codigoCliente;

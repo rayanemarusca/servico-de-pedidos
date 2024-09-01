@@ -17,6 +17,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(requests -> requests
                         .requestMatchers("/v1/pedidos/valor-total/{codigoPedido}").permitAll()
                         .requestMatchers("/v1/relatorios/quantidade-pedidos").permitAll()// Permite acesso sem autenticação
+                        .requestMatchers("v1/pedidos/cliente/{codigoCliente}").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
